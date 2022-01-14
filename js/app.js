@@ -10,8 +10,10 @@ function addEventListeners() {
 	// Cuando la App arranca
 	document.addEventListener("DOMContentLoaded", iniciarApp);
 
-	// campos del formulario
-	email.addEventListener("blur", validarMail);
+	// Validamos que los ampos del formulario no esten vacios
+	email.addEventListener("blur", validarCampos);
+	asunto.addEventListener("blur", validarCampos);
+	mensaje.addEventListener("blur", validarCampos);
 }
 
 //! Funciones
@@ -21,16 +23,17 @@ function iniciarApp() {
 	enviar.disabled = "true";
 }
 
-// Validando Formulario
-function validarMail(e) {
+// Validando Campos
+function validarCampos(e) {
 	if (e.target.value.length > 0) {
-		console.log(e.target.value);
+		e.target.style.borderColor = "green";
 	} else {
+		let tipoCampo = e.target.id;
 		e.target.style.borderColor = "red";
 		Swal.fire({
 			icon: "error",
 			title: "Error...",
-			text: "Es necesario introducir un correo",
+			text: `Es necesario introducir un ${tipoCampo}`,
 		});
 	}
 }
