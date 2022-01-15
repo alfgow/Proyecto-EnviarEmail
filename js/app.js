@@ -3,6 +3,8 @@ let enviar = document.querySelector("#enviar");
 let email = document.querySelector("#email");
 let asunto = document.querySelector("#asunto");
 let mensaje = document.querySelector("#mensaje");
+let resetBtn = document.querySelector("#resetBtn");
+
 let validarMail;
 
 //! Event Listener
@@ -16,6 +18,12 @@ function addEventListeners() {
 	asunto.addEventListener("blur", validarCampos);
 	mensaje.addEventListener("blur", validarCampos);
 	enviar.addEventListener("click", enviarFormulario);
+	resetBtn.addEventListener("click", (e) => {
+		e.preventDefault();
+		email.value = "";
+		asunto.value = "";
+		mensaje.value = "";
+	});
 }
 
 //! Funciones
