@@ -77,4 +77,7 @@ function enviarFormulario(e) {
 		title: "Todo Perfecto",
 		text: `Se ha enviado el correo`,
 	});
+	email.value = "";
+	asunto.value = "";
+	mensaje.value = "";
 }
